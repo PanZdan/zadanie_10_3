@@ -5,15 +5,18 @@ body {
   width: 100%;
   box-sizing: border-box;
 }
-
+.container {
+  margin: auto;
+}
 #carousel {
   border: 3px solid #fff;
   justify-content: center;
   align-items: center;
-  /*overflow: hidden;*/
-  margin: 0 auto;
+  overflow: hidden;
+  margin: auto;
   width: 400px;
   height: 300px;
+  float: left;
 }
 .slides {
   padding: 0;
@@ -26,9 +29,16 @@ body {
   list-style: none;
   height: 300px;
 }
-
 img {
   width: 400px;
   height: 300px;
   float: left;
+}
+button {
+  height: 306px;
+  float: left;
+  background-color: #fff;
+  border: none;
+  color: gray;
+  font-weight: 130px;
 }
