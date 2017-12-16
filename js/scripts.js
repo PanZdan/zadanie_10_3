@@ -5,8 +5,9 @@ $(function() {
 	var pause = 3000;
 	var $carousel = $('#carousel ul');
 	var isPaused = false;
-
-	moveSlide = setInterval (function() {
+  
+function start() {
+  return interval = setInterval (function() {
 		var firstItem = $carousel.find("li:first");
 		var lastItem = $carousel.find("li:last");
 		
@@ -16,8 +17,11 @@ $(function() {
 
 		});
 	}, pause);
-
+}
+ 
+start();
 	$('#previous_slide').click(function() {
+  
 		var firstItem = $carousel.find("li:first");
 		var lastItem = $carousel.find("li:last");
 		firstItem.before(lastItem);
@@ -37,13 +41,11 @@ $(function() {
 
 });
 
-// $('.slide').on('mouseover', function(e) {
-//   e.preventDefault();
-//   isPaused = true;
-// });
+$('.slide').on('mouseover', function() {
+ clearInterval(interval);
+});
 
-// $('slide').on('mouseout', function(e) {
-//   e.preventDefault();
-//   isPaused = false;
-// });
+$('slide').on('mouseout', function() {
+  start();
+});
 
