@@ -4,22 +4,20 @@ $(function() {
 	var animationSpeed = 1000;
 	var pause = 3000;
 	var $carousel = $('#carousel ul');
-	var isPaused = false;
   
-function start() {
-  return interval = setInterval (function() {
-		var firstItem = $carousel.find("li:first");
-		var lastItem = $carousel.find("li:last");
-		
-		$carousel.animate({'margin-left': '-='+width}, animationSpeed, function() {
-			lastItem.after(firstItem);
-			$carousel.css({marginLeft:0});
+	function start() {
+		return interval = setInterval (function() {
+			var firstItem = $carousel.find("li:first");
+			var lastItem = $carousel.find("li:last");
+			
+			$carousel.animate({'margin-left': '-='+width}, animationSpeed, function() {
+				lastItem.after(firstItem);
+				$carousel.css({marginLeft:0});
 
-		});
-	}, pause);
-}
- 
-start();
+			});
+		}, pause);
+	}
+	start();
 	$('#previous_slide').click(function() {
   
 		var firstItem = $carousel.find("li:first");
@@ -39,13 +37,13 @@ start();
 		});
 	});
 
-});
+	$('.mousemovement').on('mouseover', function() {
+		clearInterval(interval);
+	});
 
-$('.slide').on('mouseover', function() {
- clearInterval(interval);
-});
+	$('.mousemovement').on('mouseout', function() {
+		start();
+	});
 
-$('slide').on('mouseout', function() {
-  start();
 });
 
